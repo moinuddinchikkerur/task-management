@@ -1,0 +1,145 @@
+/* @import "tailwindcss"; */
+
+.header {
+  position: sticky;              /* sticky */
+  top: 0;                        /* top-0 */
+  z-index: 50;                   /* z-50 */
+  background-color: rgba(255, 255, 255, 0.9); /* bg-white/90 */
+  backdrop-filter: blur(12px);    /* backdrop-blur-md */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);  /* shadow-sm */
+  border-bottom: 1px solid #e5e7eb;           /* border-b border-gray-200 */
+  font-family: ui-sans-serif, system-ui, sans-serif; /* font-sans */
+}
+
+
+.container {
+  display: flex;                 /* flex */
+  align-items: center;           /* items-center */
+  justify-content: space-between;/* justify-between */
+  padding-left: 1rem;            /* px-4 -> 16px */
+  padding-right: 1rem;
+  padding-top: 0.75rem;          /* py-3 -> 12px */
+  padding-bottom: 0.75rem;
+  max-width: 80rem;              /* max-w-7xl -> 1280px */
+  margin-left: auto;             /* mx-auto -> centers container */
+  margin-right: auto;
+}
+
+/* For md:px-6 (≥768px screens) */
+@media (min-width: 768px) {
+  .container {
+    padding-left: 1.5rem;        /* px-6 -> 24px */
+    padding-right: 1.5rem;
+  }
+}
+
+
+.item {
+  display: flex;                 /* flex */
+  align-items: center;           /* items-center */
+  gap: 0.5rem;                   /* gap-2 -> 8px */
+  cursor: pointer;               /* cursor-pointer */
+}
+
+/* group has no direct CSS but is used for child selectors:
+   Example usage: .group:hover .child { ... } */
+.group:hover .child {
+  /* styles for child element when parent (.group) is hovered */
+    box-shadow: 0 4px 6px rgba(107, 33, 168, 0.5); 
+}
+
+.button-nav {
+  position: relative;                               /* relative */
+  width: 2.5rem;                                    /* w-10 -> 40px */
+  height: 2.5rem;                                   /* h-10 -> 40px */
+  display: flex;                                    /* flex */
+  align-items: center;                              /* items-center */
+  justify-content: center;                          /* justify-center */
+  border-radius: 0.75rem;                           /* rounded-xl -> 12px */
+  background-image: linear-gradient(
+    to bottom right, 
+    #d946ef, /* from-fuchsia-500 */
+    #a855f7, /* via-purple-500 */
+    #6366f1  /* to-indigo-500 */
+  ); 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);   /* shadow-lg */
+  transition: all 0.3s ease;                        /* transition-all duration-300 */
+}
+
+/* Hover effects when wrapped in a .group parent */
+.group:hover .button-nav {
+  box-shadow: 0 10px 15px -3px rgba(216, 180, 254, 0.5), 
+              0 4px 6px -2px rgba(216, 180, 254, 0.25);  /* shadow-purple-300/50 */
+  transform: scale(1.05);                          /* scale-105 */
+}
+
+.button-zap{
+    width: 24px;                                    /* w-6 -> 24px */
+    height: 24px;                                   
+    color: white;
+}
+
+.ping-dot {
+  position: absolute;               /* absolute */
+  bottom: -0.25rem;                 /* -bottom-1 -> -4px */
+  right: -0.25rem;                  /* -right-1 -> -4px */
+  width: 0.75rem;                   /* w-3 -> 12px */
+  height: 0.75rem;                  /* h-3 -> 12px */
+  background-color: #ffffff;        /* bg-white */
+  border-radius: 9999px;            /* rounded-full */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; /* animate-ping */
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.brand-name {
+    text-align: center;
+   
+  font-size: 1.5rem;                    /* text-2xl -> 24px */
+  font-weight: 800;                     /* font-extrabold */
+  background-image: linear-gradient(
+    to right, 
+    #d946ef,   /* from-fuchsia-500 */
+    #a855f7,   /* via-purple-500 */
+    #6366f1    /* to-indigo-500 */
+  );
+  -webkit-background-clip: text;         /* bg-clip-text */
+  background-clip: text;
+  color: transparent;                    /* text-transparent */
+  letter-spacing: 0.025em;                /* tracking-wide */
+}
+
+.right-nav {
+  display: flex;                        /* flex */
+  align-items: center;                  /* items-center */
+  gap: 16px;                            /* gap-4 -> 16px */
+
+}
+
+.button-r {
+padding: 0.2rem;
+  color: #4b5563; /* gray-600 */
+  /* border-radius: 99px; rounded-full */
+  transition: color 0.3s, background-color 0.3s;
+}
+ 
+.button-r:hover {
+  color: #7c3aed; /* purple-500 */
+  background-color: rgba(89, 23, 202, 0.1); /* purple-500/10 */
+}
+
+.button-settings {
+  width: 20px; /* w-6 -> 24px */
+  height: 20px; /* h-6 -> 24px */
+}
