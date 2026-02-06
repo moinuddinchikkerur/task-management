@@ -1,40 +1,102 @@
+
+
+
+
+// import mongoose from "mongoose";
+
+// const taskSchema = new mongoose.Schema({
+
+//   title: {
+//     type: String,
+//     required: true,
+//   },
+
+//   description: {
+//     type: String,
+//     default: "",
+//   },
+
+//   priority: {
+//     type: String,
+//     enum: ["low", "medium", "high"],
+//     default: "low",   // lowercase (important)
+//   },
+
+//   dueDate: {
+//     type: Date,
+//   },
+
+//   owner: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: "User",
+//     required: true,
+//   },
+
+//   // ✅ FIXED NAME
+//   completed: {
+//     type: Boolean,
+//     default: false,
+//   },
+
+//   createdAt: {
+//     type: Date,
+//     default: Date.now,
+//   },
+
+// });
+
+
+// const Task =
+//   mongoose.models.Task ||
+//   mongoose.model("Task", taskSchema);
+
+// export default Task;
+
+
 import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true
 
-    },
-    description: {
-        type: String,
-        default: ''
-    },
-    priority:{
-        type: String,
-        enum: ['low', 'medium', 'high'],
-        default: 'Low'
-    },
-    dueDate:{
-        type: Date,
-    },
-    owner:{
-        type:  mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    compeleted: {
-        type: Boolean,
-        default: false
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
+  title: {
+    type: String,
+    required: true,
+  },
+
+  description: {
+    type: String,
+    default: "",
+  },
+
+  priority: {
+    type: String,
+    enum: ["low", "medium", "high"],
+    default: "low",
+  },
+
+  dueDate: {
+    type: Date,
+  },
+
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+
+  completed: {          // ✅ correct spelling
+    type: Boolean,
+    default: false,
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+
 });
 
-const Task=  mongoose.models.Task ||  mongoose.model('Task', taskSchema);
-//const User = manooge.models.User || manooge.model('User', userSchema);
+const Task =
+  mongoose.models.Task ||
+  mongoose.model("Task", taskSchema);
 
 export default Task;
-

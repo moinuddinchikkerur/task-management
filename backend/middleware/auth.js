@@ -1,30 +1,42 @@
-import jwt from 'jsonwebtoken';
-import User from '../models/userModel.js';
 
+
+
+import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
 
-export default async function authMiddleware(req, res, next) {
-    //grap the token from the request headers
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return res.status(401).json({ success: false, message: "Unauthorized" });
-    }
-    const token = authHeader.split(' ')[1];
+export default function authMiddleware(req, res, next) {
+  const authHeader = req.headers.authorization;
 
-    // Verify and attach user object
-    try{
-        const playload = jwt.verify(token, JWT_SECRET);
-        const user = await User.findById(playload.id).select('-password');
-        if (!user) {
-            return res.status(401).json({ success: false, message: "Unauthorized" });
-        }
-        req.user = user;
-        next();
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({
+      success: false,
+      message: "Unauthorized",
+    });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+
+    // ✅ Attach user ID correctly
+    req.user = { _id: decoded.id };
+
+    next();
+  } catch (err) {
+    console.error("JWT verification failed:", err);
+
+    if (err.name === "TokenExpiredError") {
+      return res.status(401).json({
+        success: false,
+        message: "Session expired. Please login again.",
+      });
     }
-    catch (err) {
-        console.error("jwt verification fallied ",err);
-        return res.status(401).json({ success: false, message: "Unauthorized" });
-    }
+
+    return res.status(401).json({
+      success: false,
+      message: "Invalid token",
+    });
+  }
 }
-

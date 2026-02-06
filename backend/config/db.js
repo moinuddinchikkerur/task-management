@@ -1,7 +1,14 @@
+
+
+
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
-    await mongoose.connect("mongodb+srv://moin:moin@moin.uyzzvet.mongodb.net/?retryWrites=true&w=majority&appName=moin")
-    .then(() => console.log("MongoDB connected"))  
-
-}
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error.message);
+    process.exit(1);
+  }
+};
