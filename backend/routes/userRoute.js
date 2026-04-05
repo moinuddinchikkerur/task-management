@@ -1,23 +1,81 @@
-import express from 'express';
-//import { registerUser } from '../controllers/userController.js';
-import authMiddleware from '../middleware/auth.js';
-import { getCurrentUser, loginUser,registerUser,updatePassword,updateProfile } from '../controllers/userController.js';
 
 
+
+
+
+import express from "express";
+
+import authMiddleware from "../middleware/auth.js";
+import adminAuth from "../middleware/adminAuth.js";
+
+import {
+  getAllUsers,
+  deleteUser,
+  toggleBlockUser,
+  getCurrentUser,
+  loginUser,
+  registerUser,
+  updatePassword,
+  updateProfile
+} from "../controllers/userController.js";
 
 const userRouter = express.Router();
 
-// public routes
-userRouter.post('/register',registerUser);
-userRouter.post('/login',loginUser);
+
+/* ================= PUBLIC ROUTES ================= */
+
+userRouter.post("/register", registerUser);
+
+userRouter.post("/login", loginUser);
 
 
+/* ================= ADMIN ROUTES ================= */
 
-// private routes protect also
-userRouter.get('/me',authMiddleware,getCurrentUser);
-userRouter.put('/profile', authMiddleware,updateProfile);
-userRouter.put('/password', authMiddleware,updatePassword);
+userRouter.get(
+  "/admin/users",
+  authMiddleware,
+  adminAuth,
+  getAllUsers
+);
+
+
+userRouter.delete(
+  "/admin/user/:id",
+  authMiddleware,
+  adminAuth,
+  deleteUser
+);
+
+
+userRouter.put(
+  "/admin/block/:id",
+  authMiddleware,
+  adminAuth,
+  toggleBlockUser
+);
+
+
+/* ================= USER ROUTES ================= */
+
+userRouter.get(
+  "/me",
+  authMiddleware,
+  getCurrentUser
+);
+
+
+userRouter.put(
+  "/profile",
+  authMiddleware,
+  updateProfile
+);
+
+
+userRouter.put(
+  "/password",
+  authMiddleware,
+  updatePassword
+);
+
 
 export default userRouter;
-
-
