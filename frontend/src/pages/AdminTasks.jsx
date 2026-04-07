@@ -47,11 +47,11 @@ const AdminTasks = () => {
   const getTasks = async () => {
     try {
 
-      let url = "http://localhost:4000/api/task/admin/all";
+      let url = "https://task-management-l8em.onrender.com/api/task/admin/all";
 
       // If userId exists → filter
       if (userId) {
-        url = `http://localhost:4000/api/task/admin/all?userId=${userId}`;
+        url = `https://task-management-l8em.onrender.com/api/task/admin/all?userId=${userId}`;
       }
 
       const res = await axios.get(url, {
@@ -82,7 +82,7 @@ const AdminTasks = () => {
 
     try {
       await axios.delete(
-        `http://localhost:4000/api/task/admin/${id}`,
+        `https://task-management-l8em.onrender.com/api/task/admin/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -129,7 +129,7 @@ const AdminTasks = () => {
   const saveEdit = async () => {
     try {
       await axios.put(
-        `http://localhost:4000/api/task/admin/${editTask._id}`,
+        `https://task-management-l8em.onrender.com/api/task/admin/${editTask._id}`,
         {
           title: editTitle,
           description: editDesc,

@@ -34,7 +34,7 @@ const Layout = ({ user, onLogout }) => {
       }
 
       const res = await axios.get(
-        "http://localhost:4000/api/task/gp",
+        "https://task-management-l8em.onrender.com/api/task/gp",
         {
           headers: {
             Authorization: `Bearer ${token}`,

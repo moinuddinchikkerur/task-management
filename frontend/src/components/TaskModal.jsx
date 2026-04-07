@@ -23,7 +23,7 @@ export const DEFAULT_TASK = {
 };
 
 /* API */
-const API_BASE = "http://localhost:4000/api/task";
+const API_BASE = "https://task-management-l8em.onrender.com/api/task";
 
 const TaskModal = ({ isOpen, onClose, taskToEdit, onSave, onLogout }) => {
   const [taskData, setTaskData] = useState(DEFAULT_TASK);

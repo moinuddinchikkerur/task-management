@@ -62,7 +62,7 @@ const AdminDashboard = () => {
   const fetchUsers = async () => {
     try {
 
-      let url = "http://localhost:4000/api/user/admin/users";
+      let url = "https://task-management-l8em.onrender.com/api/user/admin/users";
 
       if (userId) {
         url += `?id=${userId}`;
@@ -88,7 +88,7 @@ const AdminDashboard = () => {
   const fetchTaskStats = async () => {
     try {
 
-      let url = "http://localhost:4000/api/task/admin/stats";
+      let url = "https://task-management-l8em.onrender.com/api/task/admin/stats";
 
       if (userId) {
         url += `?userId=${userId}`;

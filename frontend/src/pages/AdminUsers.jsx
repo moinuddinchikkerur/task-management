@@ -38,7 +38,7 @@ const AdminUsers = () => {
   const fetchUsers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:4000/api/user/admin/users",
+        "https://task-management-l8em.onrender.com/api/user/admin/users",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ const AdminUsers = () => {
   const toggleBlock = async (id) => {
     try {
       await axios.put(
-        `http://localhost:4000/api/user/admin/block/${id}`,
+        `https://task-management-l8em.onrender.com/api/user/admin/block/${id}`,
         {},
         {
           headers: {
@@ -99,7 +99,7 @@ const AdminUsers = () => {
 
     try {
       await axios.delete(
-        `http://localhost:4000/api/user/admin/user/${id}`,
+        `https://task-management-l8em.onrender.com/api/user/admin/user/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -126,7 +126,7 @@ const AdminUsers = () => {
   const saveEdit = async () => {
     try {
       await axios.put(
-        `http://localhost:4000/api/user/admin/update/${editUser._id}`,
+        `https://task-management-l8em.onrender.com/api/user/admin/update/${editUser._id}`,
         {
           name: editName,
           email: editEmail,

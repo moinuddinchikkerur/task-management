@@ -32,7 +32,7 @@ const SignUp = ({ onSwitchMode }) => {
   const [formData, setFormData] = useState(INITIAL_FORM);
   const [loading, setLoading] = useState(false);
 
-  const url = "http://localhost:4000";
+  const url = "https://task-management-l8em.onrender.com";
 
   /* ================= SUBMIT ================= */
 

@@ -19,7 +19,7 @@ import TaskModal from "./TaskModal";
 import "../index.css";
 
 /* API */
-const API_BASE = "http://localhost:4000/api/task";
+const API_BASE = "https://task-management-l8em.onrender.com/api/task";
 
 /* Menu Options */
 const MENU_OPTIONS = [
