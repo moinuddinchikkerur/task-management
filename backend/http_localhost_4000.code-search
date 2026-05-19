@@ -1,0 +1,81 @@
+# Query: http://localhost:4000
+# ContextLines: 1
+
+
+
+frontend\src\components\Layout.jsx:
+  36        const res = await axios.get(
+  37:         "http://localhost:4000/api/task/gp",
+  38          {
+
+frontend\src\components\Login.jsx:
+  40  
+  41:   const url = "http://localhost:4000";
+  42  
+
+frontend\src\components\SignUp.jsx:
+  34  
+  35:   const url = "http://localhost:4000";
+  36  
+
+frontend\src\components\TaskItem.jsx:
+  21  /* API */
+  22: const API_BASE = "http://localhost:4000/api/task";
+  23  
+
+frontend\src\components\TaskModal.jsx:
+  25  /* API */
+  26: const API_BASE = "http://localhost:4000/api/task";
+  27  
+
+frontend\src\pages\AdminDashboard.jsx:
+  64  
+  65:       let url = "http://localhost:4000/api/user/admin/users";
+  66  
+
+  90  
+  91:       let url = "http://localhost:4000/api/task/admin/stats";
+  92  
+
+frontend\src\pages\AdminLogin.jsx:
+   32  //       const res = await axios.post(
+   33: //         "http://localhost:4000/api/user/login",
+   34  //         { email, password }
+
+  200        const res = await axios.post(
+  201:         "http://localhost:4000/api/user/login",
+  202          { email, password }
+
+frontend\src\pages\AdminTasks.jsx:
+   49  
+   50:       let url = "http://localhost:4000/api/task/admin/all";
+   51  
+
+   53        if (userId) {
+   54:         url = `http://localhost:4000/api/task/admin/all?userId=${userId}`;
+   55        }
+
+   84        await axios.delete(
+   85:         `http://localhost:4000/api/task/admin/${id}`,
+   86          {
+
+  131        await axios.put(
+  132:         `http://localhost:4000/api/task/admin/${editTask._id}`,
+  133          {
+
+frontend\src\pages\AdminUsers.jsx:
+   40        const res = await axios.get(
+   41:         "http://localhost:4000/api/user/admin/users",
+   42          {
+
+   79        await axios.put(
+   80:         `http://localhost:4000/api/user/admin/block/${id}`,
+   81          {},
+
+  101        await axios.delete(
+  102:         `http://localhost:4000/api/user/admin/user/${id}`,
+  103          {
+
+  128        await axios.put(
+  129:         `http://localhost:4000/api/user/admin/update/${editUser._id}`,
+  130          {
